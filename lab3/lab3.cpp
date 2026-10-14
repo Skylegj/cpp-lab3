@@ -10,6 +10,8 @@
 using namespace std;
 
 int main() {
+  const double PI = 3.141592653589793;
+
   double pipeLength;
   double pipeDiameter;
   double waterDensity;
@@ -22,9 +24,7 @@ int main() {
   double volumeFlow;
   double requiredPower;
 
-  const int speedCount = 7;
-  const double PI = 3.141592653589793;
-  const double speedValues[] = { 0.02, 0.05, 0.1, 0.2, 0.4, 0.6, 1.0 };
+  int speedCount;
 
   cout << "l (m) = ";
   cin >> pipeLength;
@@ -38,10 +38,14 @@ int main() {
   cout << "nu (m^2/s) = ";
   cin >> kinematicViscosity;
 
+  cout << "Speed count = ";
+  cin >> speedCount;
+
   cout << "w (m/s) Re lambda dp (Pa) P (W)" << endl;
 
   for (int speedIndex = 0; speedIndex < speedCount; ++speedIndex) {
-    speed = speedValues[speedIndex];
+	cout << "w (m/s) = ";
+	cin >> speed;
 
     reynoldsNumber = speed * pipeDiameter / kinematicViscosity;
 
